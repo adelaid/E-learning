@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="addExam" type="tns:addExam"/>
+
+<xs:element name="addQuestion" type="tns:addQuestion"/>
+
+<xs:element name="addQuestionToExam" type="tns:addQuestionToExam"/>
+
+<xs:element name="getAllQuestions" type="tns:getAllQuestions"/>
+
+<xs:element name="getAllQuestionsResponse" type="tns:getAllQuestionsResponse"/>
+
+<xs:element name="getExamGrade" type="tns:getExamGrade"/>
+
+<xs:element name="getExamGradeResponse" type="tns:getExamGradeResponse"/>
+
+<xs:element name="getExamsByCourse" type="tns:getExamsByCourse"/>
+
+<xs:element name="getExamsByCourseResponse" type="tns:getExamsByCourseResponse"/>
+
+<xs:element name="getQuestionsByExam" type="tns:getQuestionsByExam"/>
+
+<xs:element name="getQuestionsByExamResponse" type="tns:getQuestionsByExamResponse"/>
+
+<xs:element name="gradeExam" type="tns:gradeExam"/>
+
+<xs:element name="isExamTaken" type="tns:isExamTaken"/>
+
+<xs:element name="isExamTakenResponse" type="tns:isExamTakenResponse"/>
+
+<xs:complexType name="getQuestionsByExam">
+<xs:sequence>
+<xs:element name="examId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getQuestionsByExamResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:question" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="question">
+<xs:sequence>
+<xs:element name="answer" type="xs:string" minOccurs="0"/>
+<xs:element name="course" type="tns:course" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="question" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="course">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="duration" type="xs:int"/>
+<xs:element name="endDate" type="xs:string" minOccurs="0"/>
+<xs:element name="finalExaminationType" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="lecturer" type="tns:lecturer" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="noOfStudents" type="xs:int"/>
+<xs:element name="startDate" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lecturer">
+<xs:sequence>
+<xs:element name="address" type="tns:address" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="street" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addExam">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+<xs:element name="duration" type="xs:int"/>
+<xs:element name="startTime" type="xs:string" minOccurs="0"/>
+<xs:element name="endTime" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllQuestions">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllQuestionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:question" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="gradeExam">
+<xs:sequence>
+<xs:element name="examId" type="xs:long" minOccurs="0"/>
+<xs:element name="studentId" type="xs:long" minOccurs="0"/>
+<xs:element name="grade" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getExamGrade">
+<xs:sequence>
+<xs:element name="examId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getExamGradeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:examGrades" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="examGrades">
+<xs:sequence>
+<xs:element name="examId" type="xs:long" minOccurs="0"/>
+<xs:element name="grade" type="xs:double"/>
+<xs:element name="studentId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addQuestion">
+<xs:sequence>
+<xs:element name="question" type="xs:string" minOccurs="0"/>
+<xs:element name="answer" type="xs:string" minOccurs="0"/>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getExamsByCourse">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getExamsByCourseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:exam" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="exam">
+<xs:sequence>
+<xs:element name="course" type="tns:course" minOccurs="0"/>
+<xs:element name="duration" type="xs:int"/>
+<xs:element name="endTime" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="startTime" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isExamTaken">
+<xs:sequence>
+<xs:element name="examId" type="xs:long" minOccurs="0"/>
+<xs:element name="studentId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isExamTakenResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addQuestionToExam">
+<xs:sequence>
+<xs:element name="questionId" type="xs:long" minOccurs="0"/>
+<xs:element name="examId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

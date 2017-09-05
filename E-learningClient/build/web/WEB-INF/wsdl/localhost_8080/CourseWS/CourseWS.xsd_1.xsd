@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="addCourse" type="tns:addCourse"/>
+
+<xs:element name="addMaterial" type="tns:addMaterial"/>
+
+<xs:element name="assignCoursetoLecturer" type="tns:assignCoursetoLecturer"/>
+
+<xs:element name="deleteCourse" type="tns:deleteCourse"/>
+
+<xs:element name="editCourse" type="tns:editCourse"/>
+
+<xs:element name="getAllCourses" type="tns:getAllCourses"/>
+
+<xs:element name="getAllCoursesResponse" type="tns:getAllCoursesResponse"/>
+
+<xs:element name="getAllCoursesWithLecturer" type="tns:getAllCoursesWithLecturer"/>
+
+<xs:element name="getAllCoursesWithLecturerResponse" type="tns:getAllCoursesWithLecturerResponse"/>
+
+<xs:element name="getAllCoursesWithoutLecturer" type="tns:getAllCoursesWithoutLecturer"/>
+
+<xs:element name="getAllCoursesWithoutLecturerResponse" type="tns:getAllCoursesWithoutLecturerResponse"/>
+
+<xs:element name="getCourse" type="tns:getCourse"/>
+
+<xs:element name="getCourseResponse" type="tns:getCourseResponse"/>
+
+<xs:element name="getMaterialsByCourse" type="tns:getMaterialsByCourse"/>
+
+<xs:element name="getMaterialsByCourseResponse" type="tns:getMaterialsByCourseResponse"/>
+
+<xs:element name="updateNoOfStudents" type="tns:updateNoOfStudents"/>
+
+<xs:complexType name="addCourse">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="duration" type="xs:int"/>
+<xs:element name="noOfStudents" type="xs:int"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="finalExaminationType" type="xs:string" minOccurs="0"/>
+<xs:element name="startTime" type="xs:string" minOccurs="0"/>
+<xs:element name="endTime" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteCourse">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCoursesWithoutLecturer">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllCoursesWithoutLecturerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="course">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="duration" type="xs:int"/>
+<xs:element name="endDate" type="xs:string" minOccurs="0"/>
+<xs:element name="finalExaminationType" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="lecturer" type="tns:lecturer" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="noOfStudents" type="xs:int"/>
+<xs:element name="startDate" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lecturer">
+<xs:sequence>
+<xs:element name="address" type="tns:address" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="street" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCoursesWithLecturer">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllCoursesWithLecturerResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMaterialsByCourse">
+<xs:sequence>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMaterialsByCourseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:material" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="material">
+<xs:sequence>
+<xs:element name="course" type="tns:course" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="URLM" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editCourse">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="duration" type="xs:int"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="finalexaminationtype" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="startTime" type="xs:string" minOccurs="0"/>
+<xs:element name="endTime" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCourse">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCourseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCourses">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllCoursesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:course" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateNoOfStudents">
+<xs:sequence>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+<xs:element name="noS" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="assignCoursetoLecturer">
+<xs:sequence>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+<xs:element name="lecturerId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addMaterial">
+<xs:sequence>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+<xs:element name="url" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

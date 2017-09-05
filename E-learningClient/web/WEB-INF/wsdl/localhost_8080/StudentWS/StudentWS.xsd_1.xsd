@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="addStudent" type="tns:addStudent"/>
+
+<xs:element name="confirmRegisterToCourse" type="tns:confirmRegisterToCourse"/>
+
+<xs:element name="getAllStudentCourse" type="tns:getAllStudentCourse"/>
+
+<xs:element name="getAllStudentCourseResponse" type="tns:getAllStudentCourseResponse"/>
+
+<xs:element name="getAllStudents" type="tns:getAllStudents"/>
+
+<xs:element name="getAllStudentsResponse" type="tns:getAllStudentsResponse"/>
+
+<xs:element name="getCourseByStudent" type="tns:getCourseByStudent"/>
+
+<xs:element name="getCourseByStudentResponse" type="tns:getCourseByStudentResponse"/>
+
+<xs:element name="getStudent" type="tns:getStudent"/>
+
+<xs:element name="getStudentResponse" type="tns:getStudentResponse"/>
+
+<xs:element name="registerToCourse" type="tns:registerToCourse"/>
+
+<xs:element name="userExists" type="tns:userExists"/>
+
+<xs:element name="userExistsResponse" type="tns:userExistsResponse"/>
+
+<xs:complexType name="getStudent">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStudentResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:student" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="student">
+<xs:sequence>
+<xs:element name="address" type="tns:address" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="street" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerToCourse">
+<xs:sequence>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+<xs:element name="studentId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllStudents">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllStudentsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:student" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="confirmRegisterToCourse">
+<xs:sequence>
+<xs:element name="studentId" type="xs:long" minOccurs="0"/>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCourseByStudent">
+<xs:sequence>
+<xs:element name="studentId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCourseByStudentResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:studentCourse" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="studentCourse">
+<xs:sequence>
+<xs:element name="confirmed" type="xs:string" minOccurs="0"/>
+<xs:element name="courseId" type="xs:long" minOccurs="0"/>
+<xs:element name="studentId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllStudentCourse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllStudentCourseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:studentCourse" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addStudent">
+<xs:sequence>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="city" type="xs:string" minOccurs="0"/>
+<xs:element name="street" type="xs:string" minOccurs="0"/>
+<xs:element name="streetNo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userExists">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userExistsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

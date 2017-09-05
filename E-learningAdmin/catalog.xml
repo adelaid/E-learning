@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/LecturerWS/LecturerWS?wsdl" uri="src/conf/xml-resources/web-service-references/LecturerWS/wsdl/localhost_8080/LecturerWS/LecturerWS.wsdl"/>
+    <system systemId="http://localhost:8080/LecturerWS/LecturerWS?xsd=1" uri="src/conf/xml-resources/web-service-references/LecturerWS/wsdl/localhost_8080/LecturerWS/LecturerWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/StudentWS/StudentWS?wsdl" uri="src/conf/xml-resources/web-service-references/StudentWS/wsdl/localhost_8080/StudentWS/StudentWS.wsdl"/>
+    <system systemId="http://localhost:8080/StudentWS/StudentWS?xsd=1" uri="src/conf/xml-resources/web-service-references/StudentWS/wsdl/localhost_8080/StudentWS/StudentWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CourseWS/CourseWS?wsdl" uri="src/conf/xml-resources/web-service-references/CourseWS/wsdl/localhost_8080/CourseWS/CourseWS.wsdl"/>
+    <system systemId="http://localhost:8080/CourseWS/CourseWS?xsd=1" uri="src/conf/xml-resources/web-service-references/CourseWS/wsdl/localhost_8080/CourseWS/CourseWS.xsd_1.xsd"/>
+</catalog>
